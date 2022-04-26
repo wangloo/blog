@@ -1,0 +1,29 @@
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My New Hugo Site</title><link>http://example.org/</link><description>Recent content on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Tue, 26 Apr 2022 15:32:11 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Second Blog</title><link>http://example.org/posts/second-blog/</link><pubDate>Tue, 26 Apr 2022 15:32:11 +0800</pubDate><guid>http://example.org/posts/second-blog/</guid><description>My New Hugo Site http://example.org/posts/second-blog/ -&lt;p>This is my second blog.&lt;/p>
+&lt;ul>
+&lt;li>happy&lt;/li>
+&lt;li>smile&lt;/li>
+&lt;/ul>
+- http://example.org/posts/second-blog/ - @2019 Notepadium.</description></item><item><title>First Blog</title><link>http://example.org/posts/first-blog/</link><pubDate>Tue, 26 Apr 2022 15:13:07 +0800</pubDate><guid>http://example.org/posts/first-blog/</guid><description>My New Hugo Site http://example.org/posts/first-blog/ -&lt;p>This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.
+This is my first blog.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(&lt;span style="color:#66d9ef">void&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;hello, hugo&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>- http://example.org/posts/first-blog/ - @2019 Notepadium.</description></item></channel></rss>
