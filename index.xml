@@ -1,9 +1,9 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My New Hugo Site</title><link>http://example.org/</link><description>Recent content on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Tue, 26 Apr 2022 15:32:11 +0800</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Second Blog</title><link>http://example.org/posts/second-blog/</link><pubDate>Tue, 26 Apr 2022 15:32:11 +0800</pubDate><guid>http://example.org/posts/second-blog/</guid><description>My New Hugo Site http://example.org/posts/second-blog/ -&lt;p>This is my second blog.&lt;/p>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My New Hugo Site</title><link>https://lamperm.github.io/blog/</link><description>Recent content on My New Hugo Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Tue, 26 Apr 2022 15:32:11 +0800</lastBuildDate><atom:link href="https://lamperm.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Second Blog</title><link>https://lamperm.github.io/blog/posts/second-blog/</link><pubDate>Tue, 26 Apr 2022 15:32:11 +0800</pubDate><guid>https://lamperm.github.io/blog/posts/second-blog/</guid><description>My New Hugo Site https://lamperm.github.io/blog/posts/second-blog/ -&lt;p>This is my second blog.&lt;/p>
 &lt;ul>
 &lt;li>happy&lt;/li>
 &lt;li>smile&lt;/li>
 &lt;/ul>
-- http://example.org/posts/second-blog/ - @2019 Notepadium.</description></item><item><title>First Blog</title><link>http://example.org/posts/first-blog/</link><pubDate>Tue, 26 Apr 2022 15:13:07 +0800</pubDate><guid>http://example.org/posts/first-blog/</guid><description>My New Hugo Site http://example.org/posts/first-blog/ -&lt;p>This is my first blog.
+- https://lamperm.github.io/blog/posts/second-blog/ - @2019 Notepadium.</description></item><item><title>First Blog</title><link>https://lamperm.github.io/blog/posts/first-blog/</link><pubDate>Tue, 26 Apr 2022 15:13:07 +0800</pubDate><guid>https://lamperm.github.io/blog/posts/first-blog/</guid><description>My New Hugo Site https://lamperm.github.io/blog/posts/first-blog/ -&lt;p>This is my first blog.
 This is my first blog.
 This is my first blog.
 This is my first blog.
@@ -26,4 +26,4 @@ This is my first blog.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> printf(&lt;span style="color:#e6db74">&amp;#34;hello, hugo&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>- http://example.org/posts/first-blog/ - @2019 Notepadium.</description></item></channel></rss>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>- https://lamperm.github.io/blog/posts/first-blog/ - @2019 Notepadium.</description></item></channel></rss>
