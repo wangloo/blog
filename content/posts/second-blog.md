@@ -9,3 +9,7 @@ This is my second blog.
 * happy
 * smile
 
+![](/static/img/test.jpg)
+![](/img/test.jpg)
+![](/test.jpg)
+![](test.jpg)
