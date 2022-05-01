@@ -35,7 +35,7 @@ weight = 1
     tabWidth = 4
 
 [params.gitalk]
-  owner = "lamperM"
+  owner = "wangloo"
   repo = "blogcomments_gitalk"
   client_id = "12dfb0f809e5e6afde3d"
   client_secret = "72aaf5660b3a7b43b0bffb4d683a605a7ea65dad"
