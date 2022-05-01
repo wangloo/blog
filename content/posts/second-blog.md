@@ -13,3 +13,5 @@ This is my second blog.
 ![](/img/test.jpg)
 ![](/test.jpg)
 ![](test.jpg)
+![](img/test.jpg)
+![](/blog/img/test.jpg)
