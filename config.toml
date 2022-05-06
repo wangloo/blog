@@ -1,11 +1,20 @@
 baseURL = "https://wangloo.github.io/blog/"
 languageCode = "en-us"
-title = "Loo's Secret Base "
+title = "Soben's Secret Base "
 theme = "diary"
 copyright = "@2019 Notepadium."
+enableGitInfo = true
 
 [params]
-enableGitalk = true
+  AuthorName = 'Soben Wang'
+  GitHubuser = 'wangloo'
+  Subtitle = '花有重开日, 人无再少年'
+
+  enableGitalk = true
+
+[frontmatter]
+  date = ['date', 'lastmod']
+  lastmod = [':git', 'lastmod', 'date']
 
 [[menu.main]]
 url = "/categories"
