@@ -2,20 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lamperm.github.io/blog/</loc>
-    <lastmod>2022-04-26T15:32:11+08:00</lastmod>
+    <loc>https://wangloo.github.io/blog/categories/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
   </url><url>
-    <loc>https://lamperm.github.io/blog/posts/</loc>
-    <lastmod>2022-04-26T15:32:11+08:00</lastmod>
+    <loc>https://wangloo.github.io/blog/tags/latex/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
   </url><url>
-    <loc>https://lamperm.github.io/blog/posts/second-blog/</loc>
-    <lastmod>2022-04-26T15:32:11+08:00</lastmod>
+    <loc>https://wangloo.github.io/blog/posts/latex-vim-tutorial/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
   </url><url>
-    <loc>https://lamperm.github.io/blog/posts/first-blog/</loc>
-    <lastmod>2022-04-26T15:13:07+08:00</lastmod>
+    <loc>https://wangloo.github.io/blog/posts/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
   </url><url>
-    <loc>https://lamperm.github.io/blog/categories/</loc>
+    <loc>https://wangloo.github.io/blog/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
   </url><url>
-    <loc>https://lamperm.github.io/blog/tags/</loc>
+    <loc>https://wangloo.github.io/blog/tags/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
+  </url><url>
+    <loc>https://wangloo.github.io/blog/tags/tutorial/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
+  </url><url>
+    <loc>https://wangloo.github.io/blog/tags/vim/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
+  </url><url>
+    <loc>https://wangloo.github.io/blog/categories/vim/</loc>
+    <lastmod>2022-05-06T15:08:25+08:00</lastmod>
+  </url><url>
+    <loc>https://wangloo.github.io/blog/posts/reading-notes/expert_c_programming/portability_issues/</loc>
+    <lastmod>2022-05-04T13:55:20+08:00</lastmod>
+  </url><url>
+    <loc>https://wangloo.github.io/blog/posts/gcc_-m_related/gcc_-m_related/</loc>
+    <lastmod>2022-05-04T13:55:20+08:00</lastmod>
+  </url><url>
+    <loc>https://wangloo.github.io/blog/posts/second-blog/second-blog/</loc>
+    <lastmod>2022-05-04T13:55:20+08:00</lastmod>
+  </url><url>
+    <loc>https://wangloo.github.io/blog/posts/first-blog/first-blog/</loc>
+    <lastmod>2022-05-04T13:55:20+08:00</lastmod>
   </url>
 </urlset>
