@@ -1,4 +1,5 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Sun, 08 May 2022 19:34:44 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>reveal.js Tutorial</title><link>https://wangloo.github.io/blog/posts/revealjs-tutorial/</link><pubDate>Sun, 08 May 2022 19:34:44 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/revealjs-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/revealjs-tutorial/ -&lt;h1 id="change-code-theme">Change code theme&lt;/h1>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Mon, 09 May 2022 19:28:12 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/vim-tutorial/</link><pubDate>Mon, 09 May 2022 19:28:12 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/vim-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/vim-tutorial/ -&lt;p>Search a word quickly: put cursor on the word, press &lt;code>/&lt;/code> and press &lt;code>&amp;lt;C-R&amp;gt;&lt;/code> &lt;code>&amp;lt;C-W&amp;gt;&lt;/code>.&lt;/p>
+- https://wangloo.github.io/blog/posts/vim-tutorial/ - @2019 Notepadium.</description></item><item><title>reveal.js Tutorial</title><link>https://wangloo.github.io/blog/posts/revealjs-tutorial/</link><pubDate>Sun, 08 May 2022 19:34:44 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/revealjs-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/revealjs-tutorial/ -&lt;h1 id="change-code-theme">Change code theme&lt;/h1>
 &lt;p>Default use &lt;code>monokai.css&lt;/code>. see &lt;a href="https://revealjs.com/code/">官方文档&lt;/a>&lt;/p>
 &lt;p>修改需要下载新的&lt;code>css&lt;/code>放到&lt;code>plugin/highlight/&lt;/code>目录下.&lt;/p>
 &lt;p>其他可用的&lt;code>css&lt;/code>在&lt;a href="https://github.com/highlightjs/highlight.js/tree/main/src/styles">highlight.js仓库&lt;/a>中下载.&lt;/p>
@@ -95,7 +96,7 @@ Unified syntax is newer and better, and those &lt;code>#&lt;/code> and &lt;code>
 &lt;li>向量共轭的概念&lt;/li>
 &lt;li>初等变分原理与共轭梯度算法&lt;/li>
 &lt;/ul>
-&lt;h2 id="第五章">第五章&lt;/h2>
+&lt;h2 id="第五章-插值法">第五章 插值法&lt;/h2>
 &lt;h3 id="1-插值方法与插值问题">1. 插值方法与插值问题&lt;/h3>
 &lt;ul>
 &lt;li>什么是插值函数P(x)? 被插函数? 插值节点? 插值余项?&lt;/li>
@@ -105,11 +106,161 @@ Unified syntax is newer and better, and those &lt;code>#&lt;/code> and &lt;code>
 &lt;li>多项式P(x)是否存在唯一(讨论系数矩阵)? 如何求P(x)?&lt;/li>
 &lt;/ul>
 &lt;h3 id="3-拉格朗日插值公式">3. 拉格朗日插值公式&lt;/h3>
+&lt;p>背景: 虽然上面的多项式插值能否解决n+1个点的光滑函数, 且解是唯一的. 但是&lt;strong>解方程组是很麻烦的&lt;/strong>.&lt;/p>
 &lt;ul>
-&lt;li>虽然上面的多项式插值能否解决n+1个点的光滑函数, 且解是唯一的. 但是&lt;strong>解方程组是很麻烦的&lt;/strong>.&lt;/li>
 &lt;li>拉格朗日插值公式? 插值基函数? 插值条件(插值系数)?&lt;/li>
+&lt;li>误差余项Rn(x)?&lt;/li>
 &lt;/ul>
 &lt;h3 id="4-牛顿插值公式">4. 牛顿插值公式&lt;/h3>
+&lt;blockquote>
+&lt;p>背景: 给定5个插值节点及其函数值, 可以得到L4(x); 由于某种原因, 需要加入一个新的插值节点. Lagrange插值法之前的计算结果(l)均失效, 需要重新计算. 非常的不方便.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>牛顿法是基于&lt;strong>差商&lt;/strong>的概念. 导数是差商的极限.&lt;/li>
+&lt;li>差商的差商是高阶差商.&lt;/li>
+&lt;/ul>
+&lt;h3 id="5-hermite插值">5. Hermite插值&lt;/h3>
+&lt;ul>
+&lt;li>Hermite插值可以看做牛顿插值的一个应用.&lt;/li>
+&lt;/ul>
+&lt;h3 id="6-分段低次插值">6. 分段低次插值&lt;/h3>
+&lt;blockquote>
+&lt;p>背景: 次数太高的多项式插值的效果不好. 比如龙格现象.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>分段: 把被插值函数所在的大区间分成一个个的小区间.&lt;/li>
+&lt;li>低次: 每个小区间上用次数不超过&lt;code>3&lt;/code>的函数来逼近&lt;/li>
+&lt;/ul>
+&lt;h4 id="61-分段线性插值">6.1 分段线性插值&lt;/h4>
+&lt;p>就是分段折线&lt;/p>
+&lt;p>分段线性插值的优点:&lt;/p>
+&lt;ol>
+&lt;li>简单&lt;/li>
+&lt;li>当二阶导数趋近0时, 一定收敛&lt;/li>
+&lt;/ol>
+&lt;p>分段线性插值的缺点:&lt;/p>
+&lt;ol>
+&lt;li>分段折线不光滑, 分段点处不能求导.&lt;/li>
+&lt;/ol>
+&lt;h4 id="62-分段hermite插值">6.2 分段Hermite插值&lt;/h4>
+&lt;blockquote>
+&lt;p>背景: 为了解决分段线性插值的缺点(存在尖点).&lt;/p>
+&lt;/blockquote>
+&lt;p>已知函数在(n+1)个点的函数值值以及其导数值, 去构造一阶连续可导函数.&lt;/p>
+&lt;p>分段Hermite插值根据(n+1)个已知点划分为(n+1)个区间. 这样在每个小区间上都已知&lt;code>4&lt;/code>个条件, 可以使用&lt;code>3&lt;/code>次Hermite插值.&lt;/p>
+&lt;p>结论: 已知(2n+2)个条件的情况下, 居然只得到&lt;strong>一阶连续可微函数&lt;/strong>. 结论太差!&lt;/p>
+&lt;h4 id="63-样条插值">6.3 样条插值&lt;/h4>
+&lt;blockquote>
+&lt;p>背景: 为了解决分段Hermite插值给了那么多条件, 得出的结论太差的情况. 样条插值的条件只是&lt;code>n+1&lt;/code>个已知点的函数值就可以. 不需要导数值.&lt;/p>
+&lt;/blockquote>
+&lt;p>给定&lt;code>n+1&lt;/code>个已知点的情况下, 能划分为&lt;code>n&lt;/code>个区间.&lt;/p>
+&lt;p>每个区间用三次插值, 即有4个系数需要求解. 所有的区间就一共有4n个系数需要求解. &lt;code>4n&lt;/code>个系数对应&lt;code>4n&lt;/code>个方程来解. 而利用已知的条件:&lt;/p>
+&lt;ol>
+&lt;li>&lt;code>n+1&lt;/code>个点&lt;/li>
+&lt;li>区间端点处的函数值相等&lt;/li>
+&lt;li>区间端点处的一阶导数值相等&lt;/li>
+&lt;li>区间端点处的二阶导数值相等&lt;/li>
+&lt;/ol>
+&lt;p>只能构造&lt;code>4n-2&lt;/code>个方程, 还差两个方程. 所以需要用到边界处理来添加方程.&lt;/p>
+&lt;p>&lt;strong>样条插值的边界处理&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>已知端点的一阶导数值或二阶导数值: 大多数&lt;strong>未知&lt;/strong>.&lt;/li>
+&lt;li>自然边界条件: 端点值=0的情况不多.&lt;/li>
+&lt;li>周期条件: 大部分函数&lt;strong>不满足&lt;/strong>周期条件. 是周期函数也不会用多项式插值.&lt;/li>
+&lt;/ul>
+&lt;p> &lt;/p>
+&lt;h2 id="第六章-拟合">第六章 拟合&lt;/h2>
+&lt;blockquote>
+&lt;p>背景: 已知不共线的三点, 如何确定一条&lt;strong>可信&lt;/strong>的直线.&lt;/p>
+&lt;/blockquote>
+&lt;p>三个点可以用插值来模拟二次多项式, 但题目要求了用一次多项式, 这是插值无法做到的.&lt;/p>
+&lt;p>不共线的三点不可能同时经过一条直线, 所以要用逼近的思想. 找一条近似的直线, 使得&lt;strong>误差&lt;/strong>最小.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>与插值的区别&lt;/strong>: 插值是明确给出&lt;code>n+1&lt;/code>个插值条件, 得到&lt;code>n&lt;/code>次多项式.&lt;/li>
+&lt;li>&lt;strong>如何定义误差最小?&lt;/strong>: 函数间的距离.&lt;/li>
+&lt;/ul>
+&lt;h3 id="1-线性拟合">1. 线性拟合&lt;/h3>
+&lt;p>拟合的函数是&lt;code>n&lt;/code>次多项式, 可转化为超定方程&lt;code>GX&lt;/code>.&lt;/p>
+&lt;ul>
+&lt;li>其中规定&lt;code>G&lt;/code>为系数矩阵, &lt;code>X&lt;/code>为变量的列向量.&lt;/li>
+&lt;li>同时定义列向量&lt;code>F&lt;/code>为给出的函数值.&lt;/li>
+&lt;li>&lt;code>GX=F&lt;/code>是超定方程组, 没有准确解. 得到残差最小的解的方法即&lt;strong>最小二乘法&lt;/strong>.&lt;/li>
+&lt;/ul>
+&lt;p>所以线性拟合的残差&lt;code>r = |GX - F|&lt;/code>, 而找到目标函数的宗旨就是使&lt;code>r&lt;/code>最小. 使用&lt;strong>初等变分原理&lt;/strong>将这个问题转化为&lt;strong>正规方程组&lt;/strong>求解的问题.&lt;/p>
+&lt;p> &lt;/p>
+&lt;h2 id="第七章-数值积分">第七章 数值积分&lt;/h2>
+&lt;blockquote>
+&lt;p>背景: 定积分的计算中可能无法找到原函数的情况. 考虑定积分的本质是一句具体的数, 我们的目标就是找到这个数的近似值, 越接近越好.&lt;/p>
+&lt;/blockquote>
+&lt;p>解决的两种思路: &lt;code>积分中值定理&lt;/code> 和 &lt;code>插值型求积公式(近似被积函数)&lt;/code>.&lt;/p>
+&lt;h3 id="1-积分中值定理">1. 积分中值定理&lt;/h3>
+&lt;p>基本的积分中值定理:
+$$
+\int_{a}^{b}f(x)dx = f(\xi)(b-a)
+$$&lt;/p>
+&lt;p>将一个区域的面积转化为矩形的面积. 如何确定矩形的高呢? &lt;code>左矩阵&lt;/code>, &lt;code>右矩阵&lt;/code>, &lt;code>中间矩阵&lt;/code>, &lt;code>梯形公式&lt;/code>.&lt;/p>
+&lt;p>更常用的积分公式是 在乘积函数积分中, 如果&lt;code>g(x)&lt;/code>不变号, 则有:
+$$
+\int_{a}^{b}g(x)f(x)dx =f(\xi)\int_{a}^{b}g(x)dx
+$$&lt;/p>
+&lt;h3 id="2-插值型求积公式">2. 插值型求积公式&lt;/h3>
+&lt;p>在被积函数很复杂的情况下, 可以对其进行近似处理, 例如使用&lt;code>Lagrange插值法&lt;/code>.&lt;/p>
+&lt;h4 id="21-二次插值">2.1 二次插值&lt;/h4>
+&lt;h4 id="22-simpson公式">2.2 Simpson公式&lt;/h4>
+&lt;p>取二次插值的步长&lt;code>h=(b-a)/2&lt;/code>.&lt;/p>
+&lt;h3 id="3-余项">3. 余项&lt;/h3>
+&lt;ul>
+&lt;li>插值型求积公式的余项, 即对应的插值方法(如Lagrange, Newton)的余项在区间上的积分.&lt;/li>
+&lt;li>梯形公式方法的余项可以用&lt;strong>积分中值定理&lt;/strong>来优化.&lt;/li>
+&lt;li>Simpson公式的余项&lt;strong>不能&lt;/strong>使用积分中值定理来优化, 因为不满足保号的条件.&lt;/li>
+&lt;/ul>
+&lt;h3 id="4-衡量求积公式的好坏">4. 衡量求积公式的好坏&lt;/h3>
+&lt;p>&lt;strong>代数精度&lt;/strong>: 不是一种误差, 而是对误差的描述.&lt;/p>
+&lt;ul>
+&lt;li>Simpson公式满足&lt;code>3&lt;/code>阶代数精度. 虽然它只是二次插值得到的.&lt;/li>
+&lt;/ul>
+&lt;h3 id="5复合求积公式">5.复合求积公式&lt;/h3>
+&lt;p>为了提高精度通常把积分区间分为若干个子区间, 再在每个子区间上应用低阶求积公式.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>复合梯形公式&lt;/code>: 将区间等分.&lt;/li>
+&lt;li>&lt;code>复合simpson公式&lt;/code>: 将区间偶数等分.&lt;/li>
+&lt;/ul>
+&lt;p> &lt;/p>
+&lt;h2 id="第八章-常微分方程初值问题数值解法">第八章 常微分方程初值问题数值解法&lt;/h2>
+&lt;p>将研究的内容进一步限定为: &lt;code>一阶初值问题&lt;/code>, &lt;code>单步法&lt;/code>.&lt;/p>
+&lt;blockquote>
+&lt;p>背景: 在无法给出解析表达式时如果利用数值方法求出&lt;code>y&lt;/code>的近似解?&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="1-简单的数值方法">1. 简单的数值方法&lt;/h3>
+&lt;h4 id="11-euler公式">1.1 Euler公式&lt;/h4>
+&lt;p>使用&lt;code>一阶向前差商&lt;/code>近似替代&lt;code>y'&lt;/code>. 得到递推的数列表达式:
+$$
+y_{n+1} = y_{n} + hf(x_n,y_n), n=0,1,2,&amp;hellip;
+$$&lt;/p>
+&lt;p>&lt;strong>误差&lt;/strong>: Euler法使用的近似代替只有&lt;code>一阶精度&lt;/code>, 所以误差很大. 此时有两种解决方案:&lt;/p>
+&lt;ol>
+&lt;li>加细步长&lt;code>h&lt;/code>, 若不行再加细. 总是能得到正确的, 如果你不嫌弃带来的计算变得缓慢的问题.&lt;/li>
+&lt;li>换方法.&lt;/li>
+&lt;/ol>
+&lt;h4 id="12-梯形公式">1.2 梯形公式&lt;/h4>
+&lt;blockquote>
+&lt;p>背景:为得到比Euler法精度更高的计算公式. 梯形公式具有&lt;code>二阶&lt;/code>精度.&lt;/p>
+&lt;/blockquote>
+&lt;p>对&lt;code>y' = f(x,y)&lt;/code>的两端进行&lt;strong>局部的&lt;/strong>积分, 然后用梯形公式近似计算右边.&lt;/p>
+&lt;h4 id="13-改进euler公式">1.3 改进Euler公式&lt;/h4>
+&lt;p>先用欧拉公式求得一个&lt;code>近似的yn+1&lt;/code>, 带入梯形公式, 得到&lt;code>矫正的yn+1&lt;/code>.&lt;/p>
+&lt;h3 id="2-龙格-库塔方法">2. 龙格-库塔方法&lt;/h3>
+&lt;p>弄清楚以下概念:&lt;/p>
+&lt;ul>
+&lt;li>局部截断误差(相容性)&lt;/li>
+&lt;li>收敛性&lt;/li>
+&lt;li>稳定性
+&lt;ul>
+&lt;li>一般稳定性&lt;/li>
+&lt;li>决对稳定&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
 &lt;p>$$
 \sum_{k=1}^{n} l_{11}
 $$&lt;/p>
@@ -302,27 +453,4 @@ Give you a little demo about my point.&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
 &lt;p>&lt;img src="images/test.jpg" alt="sunset">&lt;/p>
-- https://wangloo.github.io/blog/posts/second-blog/second-blog/ - @2019 Notepadium.</description></item><item><title>First Blog</title><link>https://wangloo.github.io/blog/posts/first-blog/first-blog/</link><pubDate>Tue, 26 Apr 2022 15:13:07 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/first-blog/first-blog/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/first-blog/first-blog/ -&lt;p>This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.
-This is my first blog.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">int&lt;/span> &lt;span style="color:#75af00">main&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#00a8c8">void&lt;/span>&lt;span style="color:#111">)&lt;/span> &lt;span style="color:#111">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">printf&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#d88200">&amp;#34;hello, hugo&lt;/span>&lt;span style="color:#8045ff">\n&lt;/span>&lt;span style="color:#d88200">&amp;#34;&lt;/span>&lt;span style="color:#111">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>&lt;span style="color:#111">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>- https://wangloo.github.io/blog/posts/first-blog/first-blog/ - @2019 Notepadium.</description></item></channel></rss>
+- https://wangloo.github.io/blog/posts/second-blog/second-blog/ - @2019 Notepadium.</description></item></channel></rss>
