@@ -1,4 +1,22 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Mon, 09 May 2022 19:28:12 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>First Blog</title><link>https://wangloo.github.io/blog/posts/first-blog/first-blog/</link><pubDate>Tue, 26 Apr 2022 15:13:07 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/first-blog/first-blog/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/first-blog/first-blog/ -&lt;p>This is my first blog.
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Wed, 18 May 2022 19:32:38 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Second Blog</title><link>https://wangloo.github.io/blog/posts/second-blog/second-blog/</link><pubDate>Tue, 26 Apr 2022 15:32:11 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/second-blog/second-blog/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/second-blog/second-blog/ -&lt;p>This is my second blog.&lt;/p>
+&lt;blockquote>
+&lt;p>Wish you have a good life.&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>happy&lt;/li>
+&lt;li>smile&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://wangloo.github.io/blog/img/test.jpg" alt="">
+&lt;img src="https://wangloo.github.io/blog/test.jpg" alt="">
+&lt;img src="test.jpg" alt="">
+&lt;img src="img/test.jpg" alt="">
+&lt;img src="https://wangloo.github.io/blog/blog/img/test.jpg" alt="">&lt;/p>
+&lt;figure>&lt;img src="https://wangloo.github.io/blog/blog/img/test.jpg"/>&lt;figcaption>
+&lt;h4>sunset&lt;/h4>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>&lt;img src="images/test.jpg" alt="sunset">&lt;/p>
+- https://wangloo.github.io/blog/posts/second-blog/second-blog/ - @2019 Notepadium.</description></item><item><title>First Blog</title><link>https://wangloo.github.io/blog/posts/first-blog/first-blog/</link><pubDate>Tue, 26 Apr 2022 15:13:07 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/first-blog/first-blog/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/first-blog/first-blog/ -&lt;p>This is my first blog.
 This is my first blog.
 This is my first blog.
 This is my first blog.

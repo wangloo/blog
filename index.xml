@@ -1,4 +1,6 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Mon, 09 May 2022 19:28:12 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/vim-tutorial/</link><pubDate>Mon, 09 May 2022 19:28:12 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/vim-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/vim-tutorial/ -&lt;p>Search a word quickly: put cursor on the word, press &lt;code>/&lt;/code> and press &lt;code>&amp;lt;C-R&amp;gt;&lt;/code> &lt;code>&amp;lt;C-W&amp;gt;&lt;/code>.&lt;/p>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Wed, 18 May 2022 19:32:38 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>2019 Stanford Commencement Timcook</title><link>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</link><pubDate>Wed, 18 May 2022 19:32:38 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ -&lt;h1 id="content">Content&lt;/h1>
+&lt;p>Fourteen years ago, Steve stood on this stage and told your predecessors &amp;ldquo;Your time is limited. So don&amp;rsquo;t waste is living someone else&amp;rsquo;s life. So what is true then is true now. Don&amp;rsquo;t waste your time living someone else&amp;rsquo;s life. Don&amp;rsquo;t try to emulate the people who came before you.&lt;/p>
+- https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ - @2019 Notepadium.</description></item><item><title>Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/vim-tutorial/</link><pubDate>Mon, 09 May 2022 19:28:12 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/vim-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/vim-tutorial/ -&lt;p>Search a word quickly: put cursor on the word, press &lt;code>/&lt;/code> and press &lt;code>&amp;lt;C-R&amp;gt;&lt;/code> &lt;code>&amp;lt;C-W&amp;gt;&lt;/code>.&lt;/p>
 - https://wangloo.github.io/blog/posts/vim-tutorial/ - @2019 Notepadium.</description></item><item><title>reveal.js Tutorial</title><link>https://wangloo.github.io/blog/posts/revealjs-tutorial/</link><pubDate>Sun, 08 May 2022 19:34:44 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/revealjs-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/revealjs-tutorial/ -&lt;h1 id="change-code-theme">Change code theme&lt;/h1>
 &lt;p>Default use &lt;code>monokai.css&lt;/code>. see &lt;a href="https://revealjs.com/code/">官方文档&lt;/a>&lt;/p>
 &lt;p>修改需要下载新的&lt;code>css&lt;/code>放到&lt;code>plugin/highlight/&lt;/code>目录下.&lt;/p>
@@ -435,22 +437,4 @@ Give you a little demo about my point.&lt;/p>
 &lt;li>&lt;a href="https://gcc.gnu.org/onlinedocs/gcc/Preprocessor-Options.html#Preprocessor-Options">GNU GCC options&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://programmer.group/gcc-m-mm-mmd-mf-mt.html">GCC -M, -MM, -MMD, -MF, -MT&lt;/a>&lt;/li>
 &lt;/ol>
-- https://wangloo.github.io/blog/posts/gcc_-m_related/gcc_-m_related/ - @2019 Notepadium.</description></item><item><title>Second Blog</title><link>https://wangloo.github.io/blog/posts/second-blog/second-blog/</link><pubDate>Tue, 26 Apr 2022 15:32:11 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/second-blog/second-blog/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/second-blog/second-blog/ -&lt;p>This is my second blog.&lt;/p>
-&lt;blockquote>
-&lt;p>Wish you have a good life.&lt;/p>
-&lt;/blockquote>
-&lt;ul>
-&lt;li>happy&lt;/li>
-&lt;li>smile&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://wangloo.github.io/blog/img/test.jpg" alt="">
-&lt;img src="https://wangloo.github.io/blog/test.jpg" alt="">
-&lt;img src="test.jpg" alt="">
-&lt;img src="img/test.jpg" alt="">
-&lt;img src="https://wangloo.github.io/blog/blog/img/test.jpg" alt="">&lt;/p>
-&lt;figure>&lt;img src="https://wangloo.github.io/blog/blog/img/test.jpg"/>&lt;figcaption>
-&lt;h4>sunset&lt;/h4>
-&lt;/figcaption>
-&lt;/figure>
-&lt;p>&lt;img src="images/test.jpg" alt="sunset">&lt;/p>
-- https://wangloo.github.io/blog/posts/second-blog/second-blog/ - @2019 Notepadium.</description></item></channel></rss>
+- https://wangloo.github.io/blog/posts/gcc_-m_related/gcc_-m_related/ - @2019 Notepadium.</description></item></channel></rss>
