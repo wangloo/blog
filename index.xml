@@ -46,6 +46,22 @@ In the box model, every element on a webpage can be seen as a rectangular box.&l
 &lt;p>Styles in &lt;code>&amp;lt;body&amp;gt;&lt;/code> selector take effect because of inheritance. But the text-independent elements do not support inheritance.&lt;br>
 That is where &lt;em>universal element&lt;/em> selector is needed. It&amp;rsquo;s styles take effect on all element.&lt;/p>
 &lt;p>When we want to set padding and margin of all elements to &lt;code>0&lt;/code>. Must put the code in universal element selector.&lt;/p>
+&lt;h2 id="inline-elements--block-elements">Inline elements &amp;amp; Block elements&lt;/h2>
+&lt;p>Inline elements:&lt;/p>
+&lt;ul>
+&lt;li>Occupies only the space necessary for its content.&lt;/li>
+&lt;li>Box model applies in different way: &lt;strong>heights and widths do no apply&lt;/strong>.&lt;/li>
+&lt;li>Paddings and margins are applied &lt;strong>only horizontally&lt;/strong>(left and right).&lt;/li>
+&lt;/ul>
+&lt;p>Block elements:&lt;/p>
+&lt;ul>
+&lt;li>100% of parent&amp;rsquo;s width&lt;/li>
+&lt;li>vertivally, one after another&lt;/li>
+&lt;/ul>
+&lt;p>Inline-Block elements:&lt;/p>
+&lt;ul>
+&lt;li>Good example is &lt;code>&amp;lt;img&amp;gt;&lt;/code>.&lt;/li>
+&lt;/ul>
 &lt;h2 id="css-tips">CSS tips&lt;/h2>
 &lt;ul>
 &lt;li>Class selector is more commonly used than ID selector, as &lt;code>ID&lt;/code> is &lt;em>unique&lt;/em> in HTML. For scalability, &lt;strong>remember always using class selector&lt;/strong>.&lt;/li>
