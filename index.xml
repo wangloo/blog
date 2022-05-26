@@ -1,5 +1,9 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Wed, 18 May 2022 19:32:38 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>2019 Stanford Commencement Timcook</title><link>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</link><pubDate>Wed, 18 May 2022 19:32:38 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ -&lt;h1 id="content">Content&lt;/h1>
-&lt;p>Fourteen years ago, Steve stood on this stage and told your predecessors &amp;ldquo;Your time is limited. So don&amp;rsquo;t waste is living someone else&amp;rsquo;s life. So what is true then is true now. Don&amp;rsquo;t waste your time living someone else&amp;rsquo;s life. Don&amp;rsquo;t try to emulate the people who came before you.&lt;/p>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Sat, 21 May 2022 17:39:42 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>HuGo Configuration</title><link>https://wangloo.github.io/blog/posts/hugo/</link><pubDate>Sat, 21 May 2022 17:39:42 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/hugo/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/hugo/ -&lt;h1 id="emoji-support">Emoji Support&lt;/h1>
+&lt;p>&lt;a href="https://stackoverflow.com/questions/41047920/adding-emoji-to-a-hugo-page-variable">Adding emoji tutorial&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://www.webfx.com/tools/emoji-cheat-sheet/">Emoji chart&lt;/a>&lt;/p>
+- https://wangloo.github.io/blog/posts/hugo/ - @2019 Notepadium.</description></item><item><title>2019 Stanford Commencement Timcook</title><link>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</link><pubDate>Wed, 18 May 2022 19:32:38 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ -&lt;h1 id="content">Content&lt;/h1>
+&lt;p>Fourteen years ago, Steve stood on this stage and told your predecessors &amp;ldquo;Your time is limited. So don&amp;rsquo;t waste is living someone else&amp;rsquo;s life.&amp;rdquo;&lt;/p>
+&lt;p>So what is true then is true now. Don&amp;rsquo;t waste your time living someone else&amp;rsquo;s life. Don&amp;rsquo;t try to emulate the people who came before you to the exclusion of everything else, contorting into a shape that&lt;/p>
 - https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ - @2019 Notepadium.</description></item><item><title>Html Css Learning note (0)</title><link>https://wangloo.github.io/blog/posts/html-css-learning/0/</link><pubDate>Tue, 17 May 2022 11:02:04 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/html-css-learning/0/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/html-css-learning/0/ -&lt;h1 id="get-start">Get start&lt;/h1>
 &lt;ul>
 &lt;li>HTML is resonsible for the content of the page. That&amp;rsquo;s the text, images, buttons, etc.&lt;/li>
@@ -8,7 +12,12 @@
 &lt;h2 id="configure-vim-as-html-code-editor">Configure VIM as HTML code-editor&lt;/h2>
 &lt;p>Add vim plugin:&lt;/p>
 &lt;ul>
-&lt;li>&lt;a href="https://emmet.io/">emmet&lt;/a>: Coding faster.&lt;/li>
+&lt;li>&lt;a href="https://emmet.io/">emmet&lt;/a>: Coding HTML faster.&lt;/li>
+&lt;/ul>
+&lt;p>CSS autocomplete key: &lt;code>&amp;lt;C-x&amp;gt; &amp;lt;C-o&amp;gt;&lt;/code>&lt;/p>
+&lt;p>HTML and CSS live previes plugin: &lt;a href="https://github.com/turbio/bracey.vim">bracey&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>urlopen error solution: &lt;a href="https://github.com/turbio/bracey.vim/issues/21">&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p> &lt;/p>
 &lt;h1 id="fking-html">F**king HTML&lt;/h1>
@@ -61,6 +70,62 @@ That is where &lt;em>universal element&lt;/em> selector is needed. It&amp;rsquo;
 &lt;p>Inline-Block elements:&lt;/p>
 &lt;ul>
 &lt;li>Good example is &lt;code>&amp;lt;img&amp;gt;&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-3-ways-of-building-layouts-with-css">The 3 ways of building layouts with CSS&lt;/h2>
+&lt;p>&lt;code>Float Layouts&lt;/code>: The &lt;strong>old way of building layouts&lt;/strong>, using the float CSS property. Still used, but getting outdated fase.&lt;/p>
+&lt;ul>
+&lt;li>Element is removed from the normal flow: &lt;em>out of&lt;/em> flow. Like absolutely positioning.&lt;/li>
+&lt;li>Text and inline elements will wrap around the floated elements. Different from absolutely elements.&lt;/li>
+&lt;li>The container will &lt;em>NOT&lt;/em> adjust its height to the elements.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>FlexBox&lt;/code>: Modern way of laying out elements in a &lt;strong>1-dimensional row&lt;/strong> without using floats. Prefect for &lt;strong>component layouts&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>One of its most useful applications is &lt;strong>vertical centering&lt;/strong>.&lt;/li>
+&lt;li>Flex container property:
+&lt;ul>
+&lt;li>&lt;code>gap&lt;/code>: To create space between items.&lt;/li>
+&lt;li>&lt;code>justify-content&lt;/code>: To align items along main axis(&lt;strong>horizontally&lt;/strong>, by default)&lt;/li>
+&lt;li>&lt;code>align-items&lt;/code>: To align items along cross axis(&lt;strong>vertically&lt;/strong>, by dedauly)&lt;/li>
+&lt;li>&lt;code>flex-wrap&lt;/code>: To allow items to &lt;strong>wrap into a new line&lt;/strong> if they are too large&lt;/li>
+&lt;li>&lt;code>align-content&lt;/code>: Only applies when there are multiple lines(flex-wrap: wrap)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Flex Items property:
+&lt;ul>
+&lt;li>&lt;code>align-self&lt;/code>: To overwrite align-items for individual flex items.&lt;/li>
+&lt;li>&lt;code>flex-grow&lt;/code>: To allow an element to &lt;strong>grow&lt;/strong>.&lt;/li>
+&lt;li>&lt;code>flex-shrink&lt;/code>: To allow an element to &lt;strong>shrink&lt;/strong>.&lt;/li>
+&lt;li>&lt;code>flex-basis&lt;/code>: To define an item&amp;rsquo;s width, &lt;strong>instead of the width&lt;/strong> property.&lt;/li>
+&lt;li>&lt;code>flex&lt;/code>: &lt;strong>Recommended shorthand&lt;/strong> for flex-grow, -shrink, -basis.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>CSS Grid&lt;/code>: For laying out elements in a fully-fledged &lt;strong>2-dimensional grid&lt;/strong>. Perfect for page layouts and complex components.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>CSS grid is a set of &lt;strong>CSS properties&lt;/strong> for building &lt;strong>2-dimensional&lt;/strong> layouts&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>The main idea behind CSS Grid is that we &lt;strong>divide a container element into rows and columns&lt;/strong> that can be filled with its child elements&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>CSS grid is &lt;strong>not meant to replace flexbox!&lt;/strong>. Instead, they work perfectly together. Need a &lt;strong>1D&lt;/strong> layouts? Use flexbox. Need a &lt;strong>2D&lt;/strong> layout? Use CSS grid&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Grid container&lt;/p>
+&lt;ul>
+&lt;li>grid-template-rows/grid-template-columns: To establish the grid &lt;strong>row and column tracks&lt;/strong>. One length uniit for each track. Any unit can be used, new &lt;strong>fr&lt;/strong> fills unused space&lt;/li>
+&lt;li>row-gap/colum-gap: To &lt;strong>create empty space&lt;/strong> between tracks&lt;/li>
+&lt;li>justify-items/align-items: To align items inside rows/columns(&lt;strong>horizontally/vertically&lt;/strong>)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Grid items&lt;/p>
+&lt;ul>
+&lt;li>grid-column/grid-row: To &lt;strong>place a grid item&lt;/strong> into a specific cell, based on line numbers. span keyword can be used to span an item across more cells&lt;/li>
+&lt;li>justify-self/align-self: To &lt;strong>overwrite&lt;/strong> justify-items/align-items for single items&lt;/li>
+&lt;/ul>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="css-tips">CSS tips&lt;/h2>
 &lt;ul>
@@ -317,7 +382,7 @@ $$&lt;/p>
 &lt;/ul>
 &lt;p> &lt;/p>
 &lt;h2 id="第六章-拟合">第六章 拟合&lt;/h2>
-&lt;p>:mag: &lt;strong>插值, 拟合, 逼近的区别&lt;/strong>&lt;/p>
+&lt;p>🔍 &lt;strong>插值, 拟合, 逼近的区别&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>插值: 没有给定原函数. 要求根据已知点的函数值或导数值, 给出一个满足已知条件的简单函数&lt;/li>
 &lt;li>逼近: 已知原函数的情况下, 找一个&lt;strong>简单函数&lt;/strong>能够逼近原函数, 并在其定义域上的误差达到最小&lt;/li>
@@ -365,7 +430,7 @@ $$&lt;/p>
 $$
 \int_{a}^{b}f(x)dx = \frac{b-a}{6}[f(a)+4f(\frac{a+b}{2})+f(b)]+R[f]
 $$&lt;/p>
-&lt;p>:pushpin: Simpson公式满足&lt;code>3&lt;/code>阶代数精度. 虽然它只是二次插值得到的.&lt;/p>
+&lt;p>📌 Simpson公式满足&lt;code>3&lt;/code>阶代数精度. 虽然它只是二次插值得到的.&lt;/p>
 &lt;h3 id="3-余项">3. 余项&lt;/h3>
 &lt;ul>
 &lt;li>插值型求积公式的余项, 即对应的插值方法(如Lagrange, Newton)的余项在区间上的积分.&lt;/li>
@@ -508,6 +573,4 @@ $$&lt;/p>
 &lt;p>这样规定的目的是最大程序保证代码的可移植性. 但符合该术语的代码并不常见, 例如&lt;code>INT_MAX&lt;/code>的值在不同架构的机器上结果可能不同.&lt;/p>
 &lt;p>&lt;strong>comforming&lt;/strong>&lt;/p>
 &lt;p>遵循标准的; 一个遵循标准的程序可以依赖一些对于某种编译器特有的&lt;strong>不可移植&lt;/strong>的特性. 这样一个程序对于某个编译器可能是遵循标准的, 但对于另外一个编译器又是不遵循标准的.&lt;/p>
-- https://wangloo.github.io/blog/posts/reading-notes/expert_c_programming/portability_issues/ - @2019 Notepadium.</description></item><item><title>Third Blog</title><link>https://wangloo.github.io/blog/posts/third-blog/</link><pubDate>Sun, 01 May 2022 16:41:35 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/third-blog/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/third-blog/ -&lt;p>&lt;img src="images/test.jpg" alt="sunset">
-&lt;img src="test.jpg" alt="sunset">&lt;/p>
-- https://wangloo.github.io/blog/posts/third-blog/ - @2019 Notepadium.</description></item></channel></rss>
+- https://wangloo.github.io/blog/posts/reading-notes/expert_c_programming/portability_issues/ - @2019 Notepadium.</description></item></channel></rss>
