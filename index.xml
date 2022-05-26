@@ -164,6 +164,7 @@ Unified syntax is newer and better, and those &lt;code>#&lt;/code> and &lt;code>
 &lt;li>二分法误差估计定理&lt;/li>
 &lt;/ul>
 &lt;h3 id="2-不动点迭代">2. 不动点迭代&lt;/h3>
+&lt;p>不动点: 将$f(x)=0$转化为等价形式$x=\varphi(x)$, $f(x)$的零点就等价于函数$\varphi(x)$的不动点.&lt;/p>
 &lt;ul>
 &lt;li>不动点及不动点迭代的概念&lt;/li>
 &lt;li>迭代格式的选择? 是否收敛?&lt;/li>
@@ -181,7 +182,7 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>背景: 弦截法是牛顿法的一个改进. 牛顿法求根时需要计算&lt;code>f'(x)&lt;/code>, 而导数的计算往往困难. 弦截法使用&lt;em>差商&lt;/em>来回避导数的计算.&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="5-收敛阶">5. 收敛阶&lt;/h3>
+&lt;h3 id="5-迭代法解方程的收敛阶">5. 迭代法解方程的收敛阶&lt;/h3>
 &lt;h3 id="6-非线性方程组的牛顿迭代格式">6. 非线性方程组的牛顿迭代格式&lt;/h3>
 &lt;ul>
 &lt;li>雅可比矩阵是什么?&lt;/li>
@@ -267,8 +268,7 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>背景: 有时我们已知的条件不都是函数值, 也有导数值. 例如已知两个点的函数值和两个点的导数值, 可以应用Heimite插值法得到三次多项式.&lt;/p>
 &lt;/blockquote>
-&lt;p>求Hermite插值函数的方法: 先利用导数的条件构造插值函数的导数, 然后对齐进行积分.
-&lt;em>注意积分后常数&lt;code>C&lt;/code>的取值技巧.&lt;/em>&lt;/p>
+&lt;p>Hermite插值又称Newten-Hermite插值, 即它的计算方式与Newten法类似, 也需要写出差商表, 只是处理上有一些需要注意的点.&lt;/p>
 &lt;p>Hermite插值方法的余项证明与Langrange插值法相同.&lt;/p>
 &lt;h3 id="6-分段低次插值">6. 分段低次插值&lt;/h3>
 &lt;blockquote>
@@ -318,6 +318,11 @@ $$&lt;/p>
 &lt;p> &lt;/p>
 &lt;h2 id="第六章-拟合">第六章 拟合&lt;/h2>
 &lt;p>:mag: &lt;strong>插值, 拟合, 逼近的区别&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>插值: 没有给定原函数. 要求根据已知点的函数值或导数值, 给出一个满足已知条件的简单函数&lt;/li>
+&lt;li>逼近: 已知原函数的情况下, 找一个&lt;strong>简单函数&lt;/strong>能够逼近原函数, 并在其定义域上的误差达到最小&lt;/li>
+&lt;li>拟合: 没有给定原函数, 要求根据已知点的函数值找到函数空间内使得总误差(常使用均方误差)最小的那个简单函数&lt;/li>
+&lt;/ul>
 &lt;h4 id="1-最佳平方逼近">1. 最佳平方逼近&lt;/h4>
 &lt;h4 id="2-最小二乘法">2. 最小二乘法&lt;/h4>
 &lt;blockquote>
@@ -404,6 +409,12 @@ $$&lt;/p>
 &lt;h4 id="13-改进euler公式">1.3 改进Euler公式&lt;/h4>
 &lt;p>先用欧拉公式求得一个&lt;code>近似的yn+1&lt;/code>, 带入梯形公式, 得到&lt;code>矫正的yn+1&lt;/code>.&lt;/p>
 &lt;h3 id="2-龙格-库塔方法">2. 龙格-库塔方法&lt;/h3>
+&lt;h3 id="3-局部截断误差">3. 局部截断误差&lt;/h3>
+&lt;p>一个初值问题的局部截断误差&lt;code>Tn+1&lt;/code>定义为:
+$$
+T_{n+1} = y(x_{n+1}) - y(x_n) - f(x,y)
+$$
+叫做局部误差是因为假设&lt;code>xn&lt;/code>在前各步没有误差, 仅考虑该&lt;code>xn&lt;/code>到&lt;code>xn+1&lt;/code>产生的误差.&lt;/p>
 &lt;p>$$
 \sum_{k=1}^{n} l_{11}
 $$&lt;/p>
