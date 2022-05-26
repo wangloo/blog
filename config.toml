@@ -4,6 +4,7 @@ title = "Soben's Secret Base "
 theme = "diary"
 copyright = "@2019 Notepadium."
 enableGitInfo = true
+enableEmoji = true
 
 [params]
   AuthorName = 'Soben Wang'
