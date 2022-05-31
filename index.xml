@@ -3,7 +3,18 @@
 &lt;p>&lt;a href="https://www.webfx.com/tools/emoji-cheat-sheet/">Emoji chart&lt;/a>&lt;/p>
 - https://wangloo.github.io/blog/posts/hugo/ - @2019 Notepadium.</description></item><item><title>2019 Stanford Commencement Timcook</title><link>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</link><pubDate>Wed, 18 May 2022 19:32:38 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ -&lt;h1 id="content">Content&lt;/h1>
 &lt;p>Fourteen years ago, Steve stood on this stage and told your predecessors &amp;ldquo;Your time is limited. So don&amp;rsquo;t waste is living someone else&amp;rsquo;s life.&amp;rdquo;&lt;/p>
-&lt;p>So what is true then is true now. Don&amp;rsquo;t waste your time living someone else&amp;rsquo;s life. Don&amp;rsquo;t try to emulate the people who came before you to the exclusion of everything else, contorting into a shape that&lt;/p>
+&lt;p>So what is true then is true now. Don&amp;rsquo;t waste your time living someone else&amp;rsquo;s life.
+Don&amp;rsquo;t try to emulate the people who came before you to the exclusion of
+everything else, contorting into a shape that doesn&amp;rsquo;t fit.&lt;/p>
+&lt;p>Graduates, the fact is, when your time comes, and it will, you will never be ready.
+But you&amp;rsquo;re not suppposed to be. Find the hope in the unexpected. Find the hope
+int the challenge. Find your vision on the solitary road. Don&amp;rsquo;t get distracted.
+There are too many people who want credit without responsibility. Too many who
+show up for the ribbon cutting without building anything worth a damn.&lt;/p>
+&lt;p>Be different. Leave something worthy. And always remember that you can&amp;rsquo;t take it
+with you. You&amp;rsquo;re going to have to pass it on.&lt;/p>
+&lt;p>Thank you very much. And Congratulations to the Class of 2019!&lt;/p>
+&lt;p>&lt;a href="https://www.youtube.com/watch?v=2C2VJwGBRRw&amp;amp;t=80s">YouTube vidio&lt;/a>&lt;/p>
 - https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ - @2019 Notepadium.</description></item><item><title>Html Css Learning note (0)</title><link>https://wangloo.github.io/blog/posts/html-css-learning/0/</link><pubDate>Tue, 17 May 2022 11:02:04 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/html-css-learning/0/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/html-css-learning/0/ -&lt;h1 id="get-start">Get start&lt;/h1>
 &lt;ul>
 &lt;li>HTML is resonsible for the content of the page. That&amp;rsquo;s the text, images, buttons, etc.&lt;/li>
@@ -133,6 +144,28 @@ That is where &lt;em>universal element&lt;/em> selector is needed. It&amp;rsquo;
 &lt;li>We should always specify all the four state of &lt;code>&amp;lt;a&amp;gt;&lt;/code> element in order, which including &lt;code>link&lt;/code>, &lt;code>visited&lt;/code>, &lt;code>hover&lt;/code> and &lt;code>active&lt;/code>.&lt;/li>
 &lt;/ul>
 - https://wangloo.github.io/blog/posts/html-css-learning/0/ - @2019 Notepadium.</description></item><item><title>Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/vim-tutorial/</link><pubDate>Mon, 09 May 2022 19:28:12 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/vim-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/vim-tutorial/ -&lt;p>Search a word quickly: put cursor on the word, press &lt;code>/&lt;/code> and press &lt;code>&amp;lt;C-R&amp;gt;&lt;/code> &lt;code>&amp;lt;C-W&amp;gt;&lt;/code>.&lt;/p>
+&lt;h2 id="find-and-tail">&lt;code>F&lt;/code>ind and &lt;code>T&lt;/code>ail&lt;/h2>
+&lt;p>&lt;code>f(&lt;/code>: 从当前cursor处向右查找下一个&lt;code>(&lt;/code>, 并将光标移动到&lt;code>(&lt;/code>处.&lt;br>
+&lt;code>F(&lt;/code>: Like &lt;code>f(&lt;/code>, but 向左查找.&lt;br>
+&lt;code>t(&lt;/code>: Like &lt;code>f(&lt;/code>, but 将cursor移动到&lt;code>(&lt;/code>的前一个.&lt;br>
+&lt;code>T(&lt;/code>: You can guess.&lt;/p>
+&lt;h4 id="trick">Trick&lt;/h4>
+&lt;p>&lt;code>vt(c&lt;/code>: With visual, 删除当前光标到下一个&lt;code>(&lt;/code>前的所有内容.&lt;/p>
+&lt;p>&lt;code>;&lt;/code>/&lt;code>,&lt;/code>: 查找下一个/上一个 &lt;code>f/F/t/T&lt;/code> 的内容.&lt;/p>
+&lt;h2 id="单词间跳转">单词间跳转&lt;/h2>
+&lt;p>&lt;code>w&lt;/code>: Move cursor to begin of next word.&lt;br>
+&lt;code>b&lt;/code>: Move cursor to begin of last word.&lt;br>
+&lt;code>e&lt;/code>: Move cursor to end of next word.&lt;/p>
+&lt;h4 id="trick-1">Trick&lt;/h4>
+&lt;p>&lt;code>w&lt;/code>/&lt;code>b&lt;/code>配合&lt;code>ce&lt;/code>使用可达到在某一行中快速移动到某个单词, 然后删除该单词开始edit.&lt;/p>
+&lt;p> &lt;/p>
+&lt;h2 id="good-plugin--script">Good plugin &amp;amp; script&lt;/h2>
+&lt;blockquote>
+&lt;p>Reference: &lt;a href="https://github.com/amix/vimrc">The Ultimate vimrc&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="todo">TODO&lt;/h3>
+&lt;p>&lt;a href="https://github.com/amix/open_file_under_cursor.vim">open file under cursor&lt;/a>&lt;/p>
+&lt;h3 id="installed">Installed&lt;/h3>
 - https://wangloo.github.io/blog/posts/vim-tutorial/ - @2019 Notepadium.</description></item><item><title>reveal.js Tutorial</title><link>https://wangloo.github.io/blog/posts/revealjs-tutorial/</link><pubDate>Sun, 08 May 2022 19:34:44 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/revealjs-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/revealjs-tutorial/ -&lt;h1 id="change-code-theme">Change code theme&lt;/h1>
 &lt;p>Default use &lt;code>monokai.css&lt;/code>. see &lt;a href="https://revealjs.com/code/">官方文档&lt;/a>&lt;/p>
 &lt;p>修改需要下载新的&lt;code>css&lt;/code>放到&lt;code>plugin/highlight/&lt;/code>目录下.&lt;/p>
