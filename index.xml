@@ -255,6 +255,11 @@ Unified syntax is newer and better, and those &lt;code>#&lt;/code> and &lt;code>
 &lt;/blockquote>
 - https://wangloo.github.io/blog/posts/armv8/register/ - @2019 Notepadium.</description></item><item><title>Numberical Analysis Exam</title><link>https://wangloo.github.io/blog/posts/numberical-analysis/</link><pubDate>Sat, 07 May 2022 18:04:58 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/numberical-analysis/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/numberical-analysis/ -&lt;p>&lt;img src="qingdao-tzjt.JPG" alt="qingdao">&lt;/p>
 &lt;h1 id="考试大纲">考试大纲&lt;/h1>
+&lt;p>🎯 To Reader:&lt;/p>
+&lt;p>This blog is JUST FOR EXAMINATION! If you are interested in numberical analysis, please quit this web.
+I try to sort out the knowledge points of the course, just to pass the exam.&lt;/p>
+&lt;p>Based on the course of Professor Zhong Erjie of UESTC.&lt;/p>
+&lt;p>💢 &lt;strong>I hate mathematics!&lt;/strong>&lt;/p>
 &lt;p> &lt;/p>
 &lt;h2 id="第二章-非线性方程方程组的求解">第二章 非线性方程/方程组的求解&lt;/h2>
 &lt;h3 id="1-二分法及迭代">1. 二分法及迭代&lt;/h3>
@@ -365,8 +370,7 @@ $$&lt;/p>
 &lt;blockquote>
 &lt;p>背景: 有时我们已知的条件不都是函数值, 也有导数值. 例如已知两个点的函数值和两个点的导数值, 可以应用Heimite插值法得到三次多项式.&lt;/p>
 &lt;/blockquote>
-&lt;p>求Hermite插值函数的方法: 先利用导数的条件构造插值函数的导数, 然后对齐进行积分.
-&lt;em>注意积分后常数&lt;code>C&lt;/code>的取值技巧.&lt;/em>&lt;/p>
+&lt;p>求Hermite插值函数的方法: 构造差商表, &lt;strong>重复节点特殊处理&lt;/strong>.&lt;/p>
 &lt;p>Hermite插值方法的余项证明与Langrange插值法相同.&lt;/p>
 &lt;h3 id="6-分段低次插值">6. 分段低次插值&lt;/h3>
 &lt;blockquote>
@@ -394,25 +398,6 @@ $$&lt;/p>
 &lt;p>已知函数在(n+1)个点的函数值值以及其导数值, 去构造一阶连续可导函数.&lt;/p>
 &lt;p>分段Hermite插值根据(n+1)个已知点划分为(n+1)个区间. 这样在每个小区间上都已知&lt;code>4&lt;/code>个条件, 可以使用&lt;code>3&lt;/code>次Hermite插值.&lt;/p>
 &lt;p>结论: 已知(2n+2)个条件的情况下, 居然只得到&lt;strong>一阶连续可微函数&lt;/strong>. 结论太差!&lt;/p>
-&lt;h4 id="63-样条插值">6.3 样条插值&lt;/h4>
-&lt;blockquote>
-&lt;p>背景: 为了解决分段Hermite插值给了那么多条件, 得出的结论太差的情况. 样条插值的条件只是&lt;code>n+1&lt;/code>个已知点的函数值就可以. 不需要导数值.&lt;/p>
-&lt;/blockquote>
-&lt;p>给定&lt;code>n+1&lt;/code>个已知点的情况下, 能划分为&lt;code>n&lt;/code>个区间.&lt;/p>
-&lt;p>每个区间用三次插值, 即有4个系数需要求解. 所有的区间就一共有4n个系数需要求解. &lt;code>4n&lt;/code>个系数对应&lt;code>4n&lt;/code>个方程来解. 而利用已知的条件:&lt;/p>
-&lt;ol>
-&lt;li>&lt;code>n+1&lt;/code>个点&lt;/li>
-&lt;li>区间端点处的函数值相等&lt;/li>
-&lt;li>区间端点处的一阶导数值相等&lt;/li>
-&lt;li>区间端点处的二阶导数值相等&lt;/li>
-&lt;/ol>
-&lt;p>只能构造&lt;code>4n-2&lt;/code>个方程, 还差两个方程. 所以需要用到边界处理来添加方程.&lt;/p>
-&lt;p>&lt;strong>样条插值的边界处理&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>已知端点的一阶导数值或二阶导数值: 大多数&lt;strong>未知&lt;/strong>.&lt;/li>
-&lt;li>自然边界条件: 端点值=0的情况不多.&lt;/li>
-&lt;li>周期条件: 大部分函数&lt;strong>不满足&lt;/strong>周期条件. 是周期函数也不会用多项式插值.&lt;/li>
-&lt;/ul>
 &lt;p> &lt;/p>
 &lt;h2 id="第六章-拟合">第六章 拟合&lt;/h2>
 &lt;p>🔍 &lt;strong>插值, 拟合, 逼近的区别&lt;/strong>&lt;/p>
@@ -467,10 +452,7 @@ $$&lt;/p>
 &lt;/ul>
 &lt;h3 id="4-衡量求积公式的好坏">4. 衡量求积公式的好坏&lt;/h3>
 &lt;p>&lt;strong>代数精度&lt;/strong>: 不是一种误差, 而是对误差的描述.&lt;/p>
-&lt;ul>
-&lt;li>Simpson公式满足&lt;code>3&lt;/code>阶代数精度. 虽然它只是二次插值得到的.&lt;/li>
-&lt;li>如何得知某个公式的代数精度: 只要带入一个m次多项式验证余项是否为0即可.&lt;/li>
-&lt;/ul>
+&lt;p>如何得知某个公式的代数精度: 只要带入一个m次多项式验证余项是否为0即可.&lt;/p>
 &lt;h3 id="5复合求积公式">5.复合求积公式&lt;/h3>
 &lt;p>为了提高精度通常把积分区间分为若干个子区间, 再在每个子区间上应用低阶求积公式.&lt;/p>
 &lt;ul>
@@ -501,10 +483,6 @@ $$&lt;/p>
 &lt;p>对&lt;code>y' = f(x,y)&lt;/code>的两端进行&lt;strong>局部的&lt;/strong>积分, 然后用梯形公式近似计算右边.&lt;/p>
 &lt;h4 id="13-改进euler公式">1.3 改进Euler公式&lt;/h4>
 &lt;p>先用欧拉公式求得一个&lt;code>近似的yn+1&lt;/code>, 带入梯形公式, 得到&lt;code>矫正的yn+1&lt;/code>.&lt;/p>
-&lt;h3 id="2-龙格-库塔方法">2. 龙格-库塔方法&lt;/h3>
-&lt;p>$$
-\sum_{k=1}^{n} l_{11}
-$$&lt;/p>
 - https://wangloo.github.io/blog/posts/numberical-analysis/ - @2019 Notepadium.</description></item><item><title>LaTeX Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/latex-vim-tutorial/</link><pubDate>Wed, 04 May 2022 17:07:51 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/latex-vim-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/latex-vim-tutorial/ -&lt;h2 id="use-plugin-vimtex">Use plugin &lt;code>vimtex&lt;/code>&lt;/h2>
 &lt;p>Vim build-in support of LaTeX files is just OK. When we need more excellent exprience, good plugins is very recommended.&lt;/p>
 &lt;p>&lt;a href="https://github.com/lervag/vimtex#configuration">vimtex&lt;/a> is a nice and modern vim plugin for LaTeX files.&lt;/p>
