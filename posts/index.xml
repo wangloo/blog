@@ -1,20 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Soben's Secret Base</title><link>https://wangloo.github.io/blog/posts/</link><description>Recent content in Posts on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Sat, 21 May 2022 17:39:42 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>HuGo Configuration</title><link>https://wangloo.github.io/blog/posts/hugo/</link><pubDate>Sat, 21 May 2022 17:39:42 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/hugo/</guid><description>Emoji Support Adding emoji tutorial
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Soben's Secret Base</title><link>https://wangloo.github.io/blog/posts/</link><description>Recent content in Posts on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Sat, 04 Jun 2022 11:52:51 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroKernel Learning: SeL4</title><link>https://wangloo.github.io/blog/posts/microkernel/sel4/</link><pubDate>Sat, 04 Jun 2022 11:52:51 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/microkernel/sel4/</guid><description>seL4 Capabilities In seL4, capabilities are stored in C-space. C-space is a hierarchical data structure very similar to page table.
+page table is a mapping from virtual address to physical address. C-space is a mapping from object ID to capability. Kernel object is made up of several C-nodes, just like a page table made up of individual page tables. Each C-nodes is an array of cap slots, which contain capability. Inaccessible to userland, you can never hold an actual capability</description></item><item><title>HuGo Configuration</title><link>https://wangloo.github.io/blog/posts/hugo/</link><pubDate>Sat, 21 May 2022 17:39:42 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/hugo/</guid><description>Emoji Support Adding emoji tutorial
 Emoji chart</description></item><item><title>2019 Stanford Commencement Timcook</title><link>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</link><pubDate>Wed, 18 May 2022 19:32:38 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</guid><description>Content Fourteen years ago, Steve stood on this stage and told your predecessors &amp;ldquo;Your time is limited. So don&amp;rsquo;t waste is living someone else&amp;rsquo;s life.&amp;rdquo;
 So what is true then is true now. Don&amp;rsquo;t waste your time living someone else&amp;rsquo;s life. Don&amp;rsquo;t try to emulate the people who came before you to the exclusion of everything else, contorting into a shape that doesn&amp;rsquo;t fit.
-Graduates, the fact is, when your time comes, and it will, you will never be ready.</description></item><item><title>Html Css Learning note (0)</title><link>https://wangloo.github.io/blog/posts/html-css-learning/0/</link><pubDate>Tue, 17 May 2022 11:02:04 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/html-css-learning/0/</guid><description>Get start HTML is resonsible for the content of the page. That&amp;rsquo;s the text, images, buttons, etc. CSS is resonsible for the presentation of the content. That&amp;rsquo;s the color, layout, etc. Configure VIM as HTML code-editor Add vim plugin:
-emmet: Coding HTML faster. CSS autocomplete key: &amp;lt;C-x&amp;gt; &amp;lt;C-o&amp;gt;
-HTML and CSS live previes plugin: bracey
-urlopen error solution: F**king HTML Anatomy of an HTML element &amp;lt;p&amp;gt; THML is a markup language&amp;lt;/p&amp;gt; The HTML element is composed of opening tag, content, closing tag.</description></item><item><title>Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/vim-tutorial/</link><pubDate>Mon, 09 May 2022 19:28:12 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/vim-tutorial/</guid><description>Search a word quickly: put cursor on the word, press / and press &amp;lt;C-R&amp;gt; &amp;lt;C-W&amp;gt;.
+Graduates, the fact is, when your time comes, and it will, you will never be ready.</description></item><item><title>Html Css Learning note (0)</title><link>https://wangloo.github.io/blog/posts/html-css-learning/0/</link><pubDate>Tue, 17 May 2022 11:02:04 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/html-css-learning/0/</guid><description>Get start What is HTML&amp;amp;CSS? HTML is resonsible for the content of the page. That&amp;rsquo;s the text, images, buttons, etc.
+CSS is resonsible for the presentation of the content. That&amp;rsquo;s the color, layout, etc.
+Web designers create the overall look and fell of a website.
+Web developers implement the design using HTML, CSS and JavaScript code.
+Configure VIM as HTML code-editor Finally in the arms of vscode 🙉
+Add vim plugin:</description></item><item><title>Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/vim-tutorial/</link><pubDate>Mon, 09 May 2022 19:28:12 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/vim-tutorial/</guid><description>Search a word quickly: put cursor on the word, press / and press &amp;lt;C-R&amp;gt; &amp;lt;C-W&amp;gt;.
+Bookmark ma: create bookmark a inside file.
+mA: create global bookmark A.
+`a: jump to bookmark a.
+:marks: display all bookmarks
+缩进: indent &amp;gt;: increase indent
+&amp;lt;: decrease indent
+=: auto indent
+Trick 以下命令都可以配合visual mode使用
+&amp;gt;&amp;gt;: 增加当前行的缩进
+gg=G: 缩进全文, 无论当前光标在哪
 Find and Tail f(: 从当前cursor处向右查找下一个(, 并将光标移动到(处.
 F(: Like f(, but 向左查找.
-t(: Like f(, but 将cursor移动到(的前一个.
-T(: You can guess.
-Trick vt(c: With visual, 删除当前光标到下一个(前的所有内容.
-;/,: 查找下一个/上一个 f/F/t/T 的内容.
-单词间跳转 w: Move cursor to begin of next word.
-b: Move cursor to begin of last word.
-e: Move cursor to end of next word.
-Trick w/b配合ce使用可达到在某一行中快速移动到某个单词, 然后删除该单词开始edit.</description></item><item><title>reveal.js Tutorial</title><link>https://wangloo.github.io/blog/posts/revealjs-tutorial/</link><pubDate>Sun, 08 May 2022 19:34:44 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/revealjs-tutorial/</guid><description>Change code theme Default use monokai.css. see 官方文档
+t(: Like f(, but 将cursor移动到(的前一个.</description></item><item><title>reveal.js Tutorial</title><link>https://wangloo.github.io/blog/posts/revealjs-tutorial/</link><pubDate>Sun, 08 May 2022 19:34:44 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/revealjs-tutorial/</guid><description>Change code theme Default use monokai.css. see 官方文档
 修改需要下载新的css放到plugin/highlight/目录下.
 其他可用的css在highlight.js仓库中下载.
 Align Slide Align 取消center对齐方式:

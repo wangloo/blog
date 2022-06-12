@@ -1,4 +1,145 @@
-<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Sat, 21 May 2022 17:39:42 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>HuGo Configuration</title><link>https://wangloo.github.io/blog/posts/hugo/</link><pubDate>Sat, 21 May 2022 17:39:42 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/hugo/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/hugo/ -&lt;h1 id="emoji-support">Emoji Support&lt;/h1>
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Soben's Secret Base</title><link>https://wangloo.github.io/blog/</link><description>Recent content on Soben's Secret Base</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>@2019 Notepadium.</copyright><lastBuildDate>Sat, 04 Jun 2022 11:52:51 +0800</lastBuildDate><atom:link href="https://wangloo.github.io/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>MicroKernel Learning: SeL4</title><link>https://wangloo.github.io/blog/posts/microkernel/sel4/</link><pubDate>Sat, 04 Jun 2022 11:52:51 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/microkernel/sel4/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/microkernel/sel4/ -&lt;h2 id="sel4-capabilities">seL4 Capabilities&lt;/h2>
+&lt;p>In seL4, capabilities are stored in &lt;strong>C-space&lt;/strong>. C-space is a hierarchical data structure very similar to &lt;strong>page table&lt;/strong>.&lt;/p>
+&lt;ul>
+&lt;li>page table is a mapping from virtual address to physical address.&lt;/li>
+&lt;li>C-space is a mapping from &lt;strong>object ID&lt;/strong> to &lt;strong>capability&lt;/strong>.&lt;/li>
+&lt;li>Kernel object is made up of several &lt;strong>C-nodes&lt;/strong>, just like a page table made up of individual page tables.&lt;/li>
+&lt;li>Each C-nodes is an array of cap &lt;em>slots&lt;/em>, which contain capability.&lt;/li>
+&lt;/ul>
+&lt;p>Inaccessible to userland, you can never hold an &lt;strong>actual capability&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>You can only hold a reference to capability, which pointers into C-space(slot addresses)&lt;/li>
+&lt;li>These C-space addresses are called &lt;strong>CPTRs&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>You don&amp;rsquo;t need to do the transform, because this is typically extracted in some libs.&lt;/p>
+&lt;/blockquote>
+&lt;p>Capabilities convey specific privilege (acces rights)&lt;/p>
+&lt;ul>
+&lt;li>Read, Write, Execute, GrantReply(&lt;code>call&lt;/code>), Grant(&lt;code>cap transfer&lt;/code>)&lt;/li>
+&lt;/ul>
+&lt;p>Main operations on capabilities:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Invoke&lt;/code>perform operation on object referred to by cap.
+&lt;ul>
+&lt;li>For example, map some frame into memory. You need to have capabilities to both the frame and address space.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>Copy&lt;/code>|&lt;code>Mint&lt;/code>|&lt;code>Grant&lt;/code>: create copy of cap with &lt;strong>same/lesser&lt;/strong> privilege.&lt;/li>
+&lt;li>&lt;code>Move&lt;/code>|&lt;code>Mutate&lt;/code>: transfer to different address with &lt;strong>same/lesser&lt;/strong> privilege.
+&lt;ul>
+&lt;li>Between C-space or within C-space.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>Delete&lt;/code>: invalidate slot(cleans up object if this is the only cap to it)&lt;/li>
+&lt;li>&lt;code>Revoke&lt;/code>: delete any derived(eg. copied or minted) caps&lt;/li>
+&lt;/ul>
+&lt;h3 id="capability-derivation">Capability Derivation&lt;/h3>
+&lt;h4 id="mint-operation">MINT OPERATION&lt;/h4>
+&lt;p>The &lt;strong>Mint&lt;/strong> operation creates a new, less powerful cap&lt;/p>
+&lt;ul>
+&lt;li>Can add badge&lt;/li>
+&lt;li>Can strip access rights, eg &lt;code>RW-&amp;gt;RO&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">mint&lt;/span>&lt;span style="color:#111">(&lt;/span>&lt;span style="color:#111">dest&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">src&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">rights&lt;/span>&lt;span style="color:#111">,&lt;/span> &lt;span style="color:#111">badge&lt;/span>&lt;span style="color:#111">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>The first two arguement are &lt;strong>capability pointers(CPTR)&lt;/strong> to a C-space(represented by C-node), which are references inside C-node.&lt;/li>
+&lt;li>The &lt;strong>destination C-node cap&lt;/strong> must allow modification&lt;/li>
+&lt;li>Then you have the rights and the &lt;em>batch&lt;/em> of the new cap.&lt;/li>
+&lt;/ul>
+&lt;p>📌 This is an alternative of sending addressed capabilities by &lt;strong>IPC operation&lt;/strong>.
+That is what operating system do to set up protection domains for &lt;strong>user level process&lt;/strong>.&lt;/p>
+&lt;h4 id="copy-operation">COPY OPERATION&lt;/h4>
+&lt;blockquote>
+&lt;p>Copy as a version of &lt;em>Mint&lt;/em>.&lt;/p>
+&lt;/blockquote>
+&lt;p> &lt;/p>
+&lt;h2 id="sel4-kernel-objects">seL4 Kernel Objects&lt;/h2>
+&lt;p>In file &lt;code>libsel4\include\sel4\objecttype.h&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#00a8c8">typedef&lt;/span> &lt;span style="color:#00a8c8">enum&lt;/span> &lt;span style="color:#111">api_object&lt;/span> &lt;span style="color:#111">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">seL4_UntypedObject&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">seL4_TCBObject&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">seL4_EndpointObject&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">seL4_NotificationObject&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">seL4_CapTableObject&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#ifdef CONFIG_KERNEL_MCS
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#111">seL4_SchedContextObject&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#111">seL4_ReplyObject&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#endif
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#111">seL4_NonArchObjectTypeCount&lt;/span>&lt;span style="color:#111">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span> &lt;span style="color:#111">seL4_ObjectType&lt;/span>&lt;span style="color:#111">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p> &lt;/p>
+&lt;h2 id="sel4-system-calls">seL4 System Calls&lt;/h2>
+&lt;p>seL4 has &lt;code>11&lt;/code> syscalls:&lt;/p>
+&lt;p>&lt;code>Yield()&lt;/code>: invokes scheduler&lt;/p>
+&lt;ul>
+&lt;li>does NOT require a capability!&lt;/li>
+&lt;/ul>
+&lt;p>&lt;code>Send()&lt;/code>,&lt;code>Recv()&lt;/code> and variants/combinations thereof: IPC operations&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Call()&lt;/code>,&lt;code>ReplyRecv()&lt;/code>: usually invokes by client/server&lt;/li>
+&lt;li>&lt;code>Send()&lt;/code>, &lt;code>NBSend()&lt;/code>: send-only and non-blocking version of it.&lt;/li>
+&lt;li>&lt;code>Recv()&lt;/code>, &lt;code>NBRecv()&lt;/code>, &lt;code>NBSendRecv()&lt;/code>&lt;/li>
+&lt;li>&lt;code>Wait()&lt;/code>, &lt;code>NBWait()&lt;/code>, &lt;code>NBSendWait()&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>We just use &lt;code>Call()&lt;/code> normally, the others are only for bootstrapping protocols and exception handling.&lt;/p>
+&lt;/blockquote>
+&lt;p>Call() is atomic Send() + reply-object setup + Wait()&lt;/p>
+&lt;ul>
+&lt;li>cannot be simulated with one-way operations!&lt;/li>
+&lt;/ul>
+&lt;p>ReplyRecv() is NBSend() + Recv()&lt;/p>
+&lt;h3 id="different-object-support-different-operations">Different object support different operations&lt;/h3>
+&lt;h4 id="endpoints">ENDPOINTS&lt;/h4>
+&lt;p>Endpoints support all 10 IPC variants.&lt;/p>
+&lt;h4 id="notifications">NOTIFICATIONS&lt;/h4>
+&lt;p>Notifications support:&lt;/p>
+&lt;ul>
+&lt;li>NBSend() - aliased as Signal()&lt;/li>
+&lt;li>Wait()&lt;/li>
+&lt;li>NBWait() - aliased as Poll()&lt;/li>
+&lt;/ul>
+&lt;h4 id="other-objects">OTHER OBJECTS&lt;/h4>
+&lt;p>Other objects only supports &lt;code>Call()&lt;/code> operation.&lt;/p>
+&lt;ul>
+&lt;li>Appear as (kernel-implemented) servers. If you invoking a method on an object, this is done by treating the object as a kernel-implemented server. And you invoke it with a &lt;code>call()&lt;/code> operation just as you do a normal server invocation.&lt;/li>
+&lt;li>Each of these kernel objects has a different kernel-defined protocol
+&lt;ul>
+&lt;li>operations encoded in message tag&lt;/li>
+&lt;li>parameters passed in message words&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Mostly hidden behind &lt;strong>syscall&lt;/strong> wrappers, user do not need to know this details.&lt;/li>
+&lt;/ul>
+&lt;p> &lt;/p>
+&lt;h2 id="sel4-ipc">seL4 IPC&lt;/h2>
+&lt;blockquote>
+&lt;p>IPC in seL4 is a way to realize &lt;strong>cross-domain&lt;/strong> invocation.&lt;/p>
+&lt;/blockquote>
+&lt;p>seL4 IPC is not a mechanism for shipping data. Transfering data is axillary but not the primary purpose.&lt;/p>
+&lt;p>seL4 IPC is a protected procedure call, a user-controlled context switch(from clients context into server context).&lt;/p>
+&lt;p> &lt;/p>
+&lt;h2 id="sel4-threads">seL4 Threads&lt;/h2>
+&lt;h3 id="creating-a-thread">Creating a thread&lt;/h3>
+&lt;ol>
+&lt;li>Obtain a TCB object&lt;/li>
+&lt;li>Set attributes: V-space, C-space, fault endpoint, IPC buffer&lt;/li>
+&lt;li>Set Scheduling parameters:
+&lt;ul>
+&lt;li>priority, scheduling context, timeout endpoint(maybe MCP)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Set architecture-related registers&lt;/li>
+&lt;/ol>
+&lt;h3 id="threads-and-stacks">Threads and Stacks&lt;/h3>
+&lt;p>Stacks are completely user-managed, kernel doesn&amp;rsquo;t care!&lt;/p>
+&lt;blockquote>
+&lt;p>Kernel only preserves SP.. on context switch&lt;/p>
+&lt;/blockquote>
+&lt;p>Stack location, allocation, size must be managed by &lt;strong>userland&lt;/strong>.&lt;/p>
+&lt;p>Kernel beware of stack overflow&lt;/p>
+- https://wangloo.github.io/blog/posts/microkernel/sel4/ - @2019 Notepadium.</description></item><item><title>HuGo Configuration</title><link>https://wangloo.github.io/blog/posts/hugo/</link><pubDate>Sat, 21 May 2022 17:39:42 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/hugo/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/hugo/ -&lt;h1 id="emoji-support">Emoji Support&lt;/h1>
 &lt;p>&lt;a href="https://stackoverflow.com/questions/41047920/adding-emoji-to-a-hugo-page-variable">Adding emoji tutorial&lt;/a>&lt;/p>
 &lt;p>&lt;a href="https://www.webfx.com/tools/emoji-cheat-sheet/">Emoji chart&lt;/a>&lt;/p>
 - https://wangloo.github.io/blog/posts/hugo/ - @2019 Notepadium.</description></item><item><title>2019 Stanford Commencement Timcook</title><link>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</link><pubDate>Wed, 18 May 2022 19:32:38 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ -&lt;h1 id="content">Content&lt;/h1>
@@ -16,11 +157,25 @@ with you. You&amp;rsquo;re going to have to pass it on.&lt;/p>
 &lt;p>Thank you very much. And Congratulations to the Class of 2019!&lt;/p>
 &lt;p>&lt;a href="https://www.youtube.com/watch?v=2C2VJwGBRRw&amp;amp;t=80s">YouTube vidio&lt;/a>&lt;/p>
 - https://wangloo.github.io/blog/posts/motivation/2019-stanford-commencement-timcook/ - @2019 Notepadium.</description></item><item><title>Html Css Learning note (0)</title><link>https://wangloo.github.io/blog/posts/html-css-learning/0/</link><pubDate>Tue, 17 May 2022 11:02:04 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/html-css-learning/0/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/html-css-learning/0/ -&lt;h1 id="get-start">Get start&lt;/h1>
+&lt;h2 id="what-is-htmlcss">What is HTML&amp;amp;CSS?&lt;/h2>
 &lt;ul>
-&lt;li>HTML is resonsible for the content of the page. That&amp;rsquo;s the text, images, buttons, etc.&lt;/li>
-&lt;li>CSS is resonsible for the presentation of the content. That&amp;rsquo;s the color, layout, etc.&lt;/li>
+&lt;li>
+&lt;p>HTML is resonsible for the content of the page. That&amp;rsquo;s the text, images, buttons, etc.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>CSS is resonsible for the presentation of the content. That&amp;rsquo;s the color, layout, etc.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Web &lt;strong>designers&lt;/strong> create the overall look and fell of a website.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Web &lt;strong>developers&lt;/strong> implement the design using &lt;strong>HTML, CSS and JavaScript code&lt;/strong>.&lt;/p>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="configure-vim-as-html-code-editor">Configure VIM as HTML code-editor&lt;/h2>
+&lt;blockquote>
+&lt;p>Finally in the arms of &lt;code>vscode&lt;/code> 🙉&lt;/p>
+&lt;/blockquote>
 &lt;p>Add vim plugin:&lt;/p>
 &lt;ul>
 &lt;li>&lt;a href="https://emmet.io/">emmet&lt;/a>: Coding HTML faster.&lt;/li>
@@ -28,20 +183,20 @@ with you. You&amp;rsquo;re going to have to pass it on.&lt;/p>
 &lt;p>CSS autocomplete key: &lt;code>&amp;lt;C-x&amp;gt; &amp;lt;C-o&amp;gt;&lt;/code>&lt;/p>
 &lt;p>HTML and CSS live previes plugin: &lt;a href="https://github.com/turbio/bracey.vim">bracey&lt;/a>&lt;/p>
 &lt;ul>
-&lt;li>urlopen error solution: &lt;a href="https://github.com/turbio/bracey.vim/issues/21">&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/turbio/bracey.vim/issues/21">urlopen error solution&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;p> &lt;/p>
-&lt;h1 id="fking-html">F**king HTML&lt;/h1>
+&lt;h1 id="html-fundamentals">HTML Fundamentals&lt;/h1>
 &lt;h2 id="anatomy-of-an-html-element">Anatomy of an HTML element&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">&amp;lt;&lt;/span>&lt;span style="color:#f92672">p&lt;/span>&lt;span style="color:#111">&amp;gt;&lt;/span> THML is a markup language&lt;span style="color:#111">&amp;lt;/&lt;/span>&lt;span style="color:#f92672">p&lt;/span>&lt;span style="color:#111">&amp;gt;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The HTML element is composed of &lt;code>opening tag&lt;/code>, &lt;code>content&lt;/code>, &lt;code>closing tag&lt;/code>.&lt;/p>
-&lt;h2 id="html-tips">HTML tips&lt;/h2>
+&lt;h2 id="html-good-styles">HTML good styles&lt;/h2>
 &lt;ul>
 &lt;li>&lt;code>&amp;lt;img/&amp;gt;&lt;/code> element should add &lt;code>alt&lt;/code> attritube at all time, for the convenience of the blind.&lt;/li>
 &lt;li>An important principle in web design is &lt;code>making the HTML elements meaningful&lt;/code>. That is &lt;a href="https://www.thoughtco.com/why-use-semantic-html-3468271">semantic HTML&lt;/a>.&lt;/li>
 &lt;/ul>
 &lt;p> &lt;/p>
-&lt;h1 id="fking-css">F**king CSS&lt;/h1>
+&lt;h1 id="css-fundamentals">CSS Fundamentals&lt;/h1>
 &lt;p>CSS describes the visual style and presentation of the contend in HTML.&lt;/p>
 &lt;h2 id="anatomy-of-an-html-element-1">Anatomy of an HTML element&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-css" data-lang="css">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">h1&lt;/span> &lt;span style="color:#111">{&lt;/span>
@@ -50,7 +205,12 @@ with you. You&amp;rsquo;re going to have to pass it on.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#00a8c8">font-size&lt;/span>&lt;span style="color:#111">:&lt;/span> &lt;span style="color:#ae81ff">20&lt;/span>&lt;span style="color:#00a8c8">px&lt;/span>&lt;span style="color:#111">;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#111">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>h1 is &lt;code>Seletor&lt;/code>, every &lt;code>style&lt;/code> has &lt;code>proporty&lt;/code> and &lt;code>value&lt;/code>.&lt;/p>
-&lt;h2 id="conflicts-between-selectors">Conflicts between selectors&lt;/h2>
+&lt;h2 id="css-good-styles">CSS good styles&lt;/h2>
+&lt;ul>
+&lt;li>Class selector is more commonly used than ID selector, as &lt;code>ID&lt;/code> is &lt;em>unique&lt;/em> in HTML. For scalability, &lt;strong>remember always using class selector&lt;/strong>.&lt;/li>
+&lt;li>We should always specify all the four state of &lt;code>&amp;lt;a&amp;gt;&lt;/code> element in order, which including &lt;code>link&lt;/code>, &lt;code>visited&lt;/code>, &lt;code>hover&lt;/code> and &lt;code>active&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="priority-conflicts-between-selectors">Priority conflicts between selectors&lt;/h2>
 &lt;p>CSS style priority from high to low:&lt;/p>
 &lt;ol>
 &lt;li>Inline style(style attribute in HTML)&lt;/li>
@@ -59,14 +219,17 @@ with you. You&amp;rsquo;re going to have to pass it on.&lt;/p>
 &lt;li>element selector&lt;/li>
 &lt;li>universal element selector&lt;/li>
 &lt;/ol>
-&lt;h2 id="the-css-box-model">The CSS box model&lt;/h2>
+&lt;p> &lt;/p>
+&lt;h1 id="the-css-box-model">The CSS box model&lt;/h1>
 &lt;p>The box model defines how elements are displayed on a webpage and how they are sized.&lt;br>
 In the box model, every element on a webpage can be seen as a rectangular box.&lt;/p>
-&lt;h2 id="universal-element--body-element">Universal element &amp;amp; &lt;code>&amp;lt;body&amp;gt;&lt;/code> element&lt;/h2>
+&lt;p> &lt;/p>
+&lt;h1 id="universal-element--body-element">Universal element &amp;amp; &lt;code>&amp;lt;body&amp;gt;&lt;/code> element&lt;/h1>
 &lt;p>Styles in &lt;code>&amp;lt;body&amp;gt;&lt;/code> selector take effect because of inheritance. But the text-independent elements do not support inheritance.&lt;br>
 That is where &lt;em>universal element&lt;/em> selector is needed. It&amp;rsquo;s styles take effect on all element.&lt;/p>
 &lt;p>When we want to set padding and margin of all elements to &lt;code>0&lt;/code>. Must put the code in universal element selector.&lt;/p>
-&lt;h2 id="inline-elements--block-elements">Inline elements &amp;amp; Block elements&lt;/h2>
+&lt;p> &lt;/p>
+&lt;h1 id="inline-elements--block-elements">Inline elements &amp;amp; Block elements&lt;/h1>
 &lt;p>Inline elements:&lt;/p>
 &lt;ul>
 &lt;li>Occupies only the space necessary for its content.&lt;/li>
@@ -82,7 +245,8 @@ That is where &lt;em>universal element&lt;/em> selector is needed. It&amp;rsquo;
 &lt;ul>
 &lt;li>Good example is &lt;code>&amp;lt;img&amp;gt;&lt;/code>.&lt;/li>
 &lt;/ul>
-&lt;h2 id="the-3-ways-of-building-layouts-with-css">The 3 ways of building layouts with CSS&lt;/h2>
+&lt;p> &lt;/p>
+&lt;h1 id="the-3-ways-of-building-layouts-with-css">The 3 ways of building layouts with CSS&lt;/h1>
 &lt;p>&lt;code>Float Layouts&lt;/code>: The &lt;strong>old way of building layouts&lt;/strong>, using the float CSS property. Still used, but getting outdated fase.&lt;/p>
 &lt;ul>
 &lt;li>Element is removed from the normal flow: &lt;em>out of&lt;/em> flow. Like absolutely positioning.&lt;/li>
@@ -138,34 +302,82 @@ That is where &lt;em>universal element&lt;/em> selector is needed. It&amp;rsquo;
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="css-tips">CSS tips&lt;/h2>
-&lt;ul>
-&lt;li>Class selector is more commonly used than ID selector, as &lt;code>ID&lt;/code> is &lt;em>unique&lt;/em> in HTML. For scalability, &lt;strong>remember always using class selector&lt;/strong>.&lt;/li>
-&lt;li>We should always specify all the four state of &lt;code>&amp;lt;a&amp;gt;&lt;/code> element in order, which including &lt;code>link&lt;/code>, &lt;code>visited&lt;/code>, &lt;code>hover&lt;/code> and &lt;code>active&lt;/code>.&lt;/li>
-&lt;/ul>
 - https://wangloo.github.io/blog/posts/html-css-learning/0/ - @2019 Notepadium.</description></item><item><title>Vim Tutorial</title><link>https://wangloo.github.io/blog/posts/vim-tutorial/</link><pubDate>Mon, 09 May 2022 19:28:12 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/vim-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/vim-tutorial/ -&lt;p>Search a word quickly: put cursor on the word, press &lt;code>/&lt;/code> and press &lt;code>&amp;lt;C-R&amp;gt;&lt;/code> &lt;code>&amp;lt;C-W&amp;gt;&lt;/code>.&lt;/p>
+&lt;p> &lt;/p>
+&lt;h2 id="bookmark">Bookmark&lt;/h2>
+&lt;p>&lt;code>ma&lt;/code>: create bookmark &lt;code>a&lt;/code> inside file.&lt;br>
+&lt;code>mA&lt;/code>: create global bookmark &lt;code>A&lt;/code>.&lt;br>
+&lt;code>`a&lt;/code>: jump to bookmark &lt;code>a&lt;/code>.&lt;/p>
+&lt;p>&lt;code>:marks&lt;/code>: display all bookmarks&lt;/p>
+&lt;h2 id="缩进-indent">缩进: indent&lt;/h2>
+&lt;p>&lt;code>&amp;gt;&lt;/code>: increase indent&lt;br>
+&lt;code>&amp;lt;&lt;/code>: decrease indent&lt;br>
+&lt;code>=&lt;/code>: auto indent&lt;/p>
+&lt;h3 id="trick">Trick&lt;/h3>
+&lt;blockquote>
+&lt;p>以下命令都可以配合visual mode使用&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;code>&amp;gt;&amp;gt;&lt;/code>: 增加当前行的缩进&lt;/p>
+&lt;p>&lt;code>gg=G&lt;/code>: 缩进全文, 无论当前光标在哪&lt;/p>
 &lt;h2 id="find-and-tail">&lt;code>F&lt;/code>ind and &lt;code>T&lt;/code>ail&lt;/h2>
 &lt;p>&lt;code>f(&lt;/code>: 从当前cursor处向右查找下一个&lt;code>(&lt;/code>, 并将光标移动到&lt;code>(&lt;/code>处.&lt;br>
 &lt;code>F(&lt;/code>: Like &lt;code>f(&lt;/code>, but 向左查找.&lt;br>
 &lt;code>t(&lt;/code>: Like &lt;code>f(&lt;/code>, but 将cursor移动到&lt;code>(&lt;/code>的前一个.&lt;br>
 &lt;code>T(&lt;/code>: You can guess.&lt;/p>
-&lt;h4 id="trick">Trick&lt;/h4>
+&lt;h4 id="trick-1">Trick&lt;/h4>
 &lt;p>&lt;code>vt(c&lt;/code>: With visual, 删除当前光标到下一个&lt;code>(&lt;/code>前的所有内容.&lt;/p>
 &lt;p>&lt;code>;&lt;/code>/&lt;code>,&lt;/code>: 查找下一个/上一个 &lt;code>f/F/t/T&lt;/code> 的内容.&lt;/p>
+&lt;p> &lt;/p>
+&lt;h2 id="大小写转换">大小写转换&lt;/h2>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>cmd&lt;/th>
+&lt;th>description&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>g~&lt;/code>&lt;/td>
+&lt;td>翻转大小写&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>gu&lt;/code>&lt;/td>
+&lt;td>转换为小写&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>gU&lt;/code>&lt;/td>
+&lt;td>转换为大写&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>以上命令(严格来说叫操作符)需要配合&lt;strong>动作命令&lt;/strong>来使用.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>gUaw&lt;/code>: 将光标所在位置的&lt;em>单词&lt;/em>转为大写&lt;/li>
+&lt;li>&lt;code>gUap&lt;/code>: 将光标所在位置的&lt;em>段落&lt;/em>转为大写&lt;/li>
+&lt;/ul>
 &lt;h2 id="单词间跳转">单词间跳转&lt;/h2>
 &lt;p>&lt;code>w&lt;/code>: Move cursor to begin of next word.&lt;br>
 &lt;code>b&lt;/code>: Move cursor to begin of last word.&lt;br>
 &lt;code>e&lt;/code>: Move cursor to end of next word.&lt;/p>
-&lt;h4 id="trick-1">Trick&lt;/h4>
+&lt;h4 id="trick-2">Trick&lt;/h4>
 &lt;p>&lt;code>w&lt;/code>/&lt;code>b&lt;/code>配合&lt;code>ce&lt;/code>使用可达到在某一行中快速移动到某个单词, 然后删除该单词开始edit.&lt;/p>
+&lt;p>&lt;code>daw&lt;/code>: 即 Delete A Word, 可以删除一个完整的单词, 无论当前光标的位置在哪.&lt;/p>
 &lt;p> &lt;/p>
 &lt;h2 id="good-plugin--script">Good plugin &amp;amp; script&lt;/h2>
 &lt;blockquote>
 &lt;p>Reference: &lt;a href="https://github.com/amix/vimrc">The Ultimate vimrc&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="todo">TODO&lt;/h3>
-&lt;p>&lt;a href="https://github.com/amix/open_file_under_cursor.vim">open file under cursor&lt;/a>&lt;/p>
 &lt;h3 id="installed">Installed&lt;/h3>
+&lt;p>&lt;a href="https://github.com/preservim/nerdcommenter#settings">NERD Commneter - 快速注释&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/preservim/nerdtree">NERD Tree - 目录树&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://github.com/amix/open_file_under_cursor.vim">Open File Under Cursor - 打开光标处的文件目录&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>不支持&lt;code>vim-plug&lt;/code>安装. 直接clone源码到&lt;code>plugged&lt;/code>目录即可.&lt;/li>
+&lt;li>Usage: &lt;code>gf&lt;/code>: 在当前window打开文件. &lt;code>&amp;lt;C-w&amp;gt;&amp;lt;C-f&amp;gt;&lt;/code>: &lt;strong>new vertical windows&lt;/strong>中打开文件.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;a href="https://github.com/mileszs/ack.vim">Ack.vim - 快速定位内容&lt;/a>&lt;/p>
 - https://wangloo.github.io/blog/posts/vim-tutorial/ - @2019 Notepadium.</description></item><item><title>reveal.js Tutorial</title><link>https://wangloo.github.io/blog/posts/revealjs-tutorial/</link><pubDate>Sun, 08 May 2022 19:34:44 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/revealjs-tutorial/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/revealjs-tutorial/ -&lt;h1 id="change-code-theme">Change code theme&lt;/h1>
 &lt;p>Default use &lt;code>monokai.css&lt;/code>. see &lt;a href="https://revealjs.com/code/">官方文档&lt;/a>&lt;/p>
 &lt;p>修改需要下载新的&lt;code>css&lt;/code>放到&lt;code>plugin/highlight/&lt;/code>目录下.&lt;/p>
@@ -544,33 +756,4 @@ $$&lt;/p>
 &lt;ul>
 &lt;li>CTex is only avilable in windows.&lt;/li>
 &lt;/ul>
-- https://wangloo.github.io/blog/posts/latex-vim-tutorial/ - @2019 Notepadium.</description></item><item><title>Portability Issues</title><link>https://wangloo.github.io/blog/posts/reading-notes/expert_c_programming/portability_issues/</link><pubDate>Sun, 01 May 2022 16:41:35 +0800</pubDate><guid>https://wangloo.github.io/blog/posts/reading-notes/expert_c_programming/portability_issues/</guid><description>Soben's Secret Base https://wangloo.github.io/blog/posts/reading-notes/expert_c_programming/portability_issues/ -&lt;p>When reading C standard documents, we usually see phrases like &amp;ldquo;&lt;strong>Implementation-defined&lt;/strong>&amp;rdquo;, &amp;ldquo;&lt;strong>Unspecified&lt;/strong>&amp;rdquo;,.etc.&lt;/p>
-&lt;p>So, what do they really mean?&lt;/p>
-&lt;h2 id="术语">术语&lt;/h2>
-&lt;p>我们将这些难以直接理解的词汇称为&lt;strong>术语&lt;/strong>，在ANSI C中，术语可以分为描述不可移植代码(unportable), 坏代码(bad), 可移植的代码(portable)三类.&lt;/p>
-&lt;h3 id="unportable-code">unportable code&lt;/h3>
-&lt;p>&lt;strong>Implementation-defined&lt;/strong>&lt;/p>
-&lt;p>需要由编译器设计者决定采取何种行为，他们可能不同，但都不能说是错误的.&lt;br>
-例如：当整型数右移时，是否需要扩展符号位. &lt;a href="https://www.cnblogs.com/bluettt/p/16186598.html">右移代替除法可能导致的灾难&lt;/a>.&lt;/p>
-&lt;p>&lt;strong>unspecified&lt;/strong>&lt;/p>
-&lt;p>在某些正确情况下的做法，标准并未明确规定应该怎样做.&lt;br>
-例如：参数求值的顺序.&lt;/p>
-&lt;h3 id="bad-code">bad code&lt;/h3>
-&lt;p>&lt;strong>undefined&lt;/strong>&lt;/p>
-&lt;p>在某些不正确情况下的做法，但标准并未规定应该怎样做。意味着你可以采取任何行动，可以什么都不做，也可以发出一条警告信息, 或者终止CPU重启等等. 你甚至可以发射核导弹(只要你安装了能发射核导弹的硬件系统).&lt;br>
-例如：当一个有符号整数溢出时该采取什么行动.&lt;/p>
-&lt;p>&lt;strong>constraint&lt;/strong>&lt;/p>
-&lt;p>这是一个必须遵守的限制或要求. 如果你不遵守, 那么你的程序的行为就会变成如上所说的&lt;code>undefined&lt;/code>. 这出现了一种很有意思的情况: 分辨某种东西是否是一个&lt;code>constaint&lt;/code>是很容易的, 因为每个标准的主题都附有一个&lt;code>constraint&lt;/code>小节, 列出了所有的约束条件。&lt;br>
-例如: &lt;code>%&lt;/code>操作符的操作数必须为整型. 所以,在非整型数据上使用&lt;code>%&lt;/code>操作符肯定会导致&lt;code>undefined&lt;/code>.&lt;/p>
-&lt;h3 id="portable-code">portable code&lt;/h3>
-&lt;p>&lt;strong>strictly conforming&lt;/strong>&lt;/p>
-&lt;p>严格遵守标准的. 符合该条件的程序应当是:&lt;/p>
-&lt;ul>
-&lt;li>只使用已确定的特性&lt;/li>
-&lt;li>不突破任何由编译器实现(Implementation-defined)的限制.&lt;/li>
-&lt;li>不使用&lt;code>unspecified&lt;/code>和&lt;code>undefined&lt;/code>特性&lt;/li>
-&lt;/ul>
-&lt;p>这样规定的目的是最大程序保证代码的可移植性. 但符合该术语的代码并不常见, 例如&lt;code>INT_MAX&lt;/code>的值在不同架构的机器上结果可能不同.&lt;/p>
-&lt;p>&lt;strong>comforming&lt;/strong>&lt;/p>
-&lt;p>遵循标准的; 一个遵循标准的程序可以依赖一些对于某种编译器特有的&lt;strong>不可移植&lt;/strong>的特性. 这样一个程序对于某个编译器可能是遵循标准的, 但对于另外一个编译器又是不遵循标准的.&lt;/p>
-- https://wangloo.github.io/blog/posts/reading-notes/expert_c_programming/portability_issues/ - @2019 Notepadium.</description></item></channel></rss>
+- https://wangloo.github.io/blog/posts/latex-vim-tutorial/ - @2019 Notepadium.</description></item></channel></rss>
