@@ -10,8 +10,8 @@ enableEmoji = true
   AuthorName = 'Soben Wang'
   GitHubuser = 'wangloo'
   Subtitle = '花有重开日, 人无再少年'
-
   enableGitalk = true
+  enableReadingTime=true
 
 [frontmatter]
   date = ['date', 'lastmod']
@@ -43,6 +43,11 @@ weight = 1
     noClasses = true
     style = "monokailight"
     tabWidth = 4
+
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
 
 [params.gitalk]
   owner = "wangloo"
